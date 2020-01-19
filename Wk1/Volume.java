@@ -1,3 +1,8 @@
+/* This is a peer's code example
+*  It needed a few changes to compile 
+*  and run as intended
+*/
+
 public class Volume{
 
     public int MIN_VOL = 0;
