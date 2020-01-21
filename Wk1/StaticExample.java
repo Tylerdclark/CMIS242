@@ -1,3 +1,9 @@
+/* This is my submission to 
+** show the use of the static
+** modifier. It is very simple
+** and over commented
+*/
+
 class StaticExample {
   
   // There can be only one...
