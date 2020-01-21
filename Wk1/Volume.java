@@ -1,6 +1,7 @@
 /* This is a peer's code example
 *  It needed a few changes to compile 
-*  and run as intended
+*  and run as intended. There was also
+*  a driver, but thats easy to make
 */
 
 public class Volume{
