@@ -14,25 +14,25 @@ public class Volume{
     //needed access modifier and return type
     //added static so could be used in main class
     public static void volumeUp() {
-        main.Volume++;
+        vol++;
     }
 
-    VolumeDow(){
-        main.Volume--;
+    public static void volumeDow(){
+        vol--;
 
     }
 
-    SetVolume( final int Volume){
-       main.Volume = Volume;
-       if (main.Volume > MAX_VOL){
-           main.Volume = MAX_VOL ; 
+    public static void SetVolume(int Volume){
+       vol = Volume;
+       if (vol > MAX_VOL){
+           vol = MAX_VOL ; 
        }
-       if(main.Volume < MIN_VOL){ 
-           main.volume = MIN_VOL;
+       if(vol < MIN_VOL){ 
+           vol = MIN_VOL;
        } 
     }
 
-    public int getVol(){
-        return Volume; 
+    public static int getVol(){
+        return vol; 
     }
 }
