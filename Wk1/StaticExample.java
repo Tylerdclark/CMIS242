@@ -1,15 +1,15 @@
-class Main {
+class StaticExample {
   
   // There can be only one...
   static int counter = 0;
   
   //non-static methods cannot interact w/ static vars
   void increaseCounter() {
-    Main.counter += 1;
+    StaticExample.counter += 1;
   }
   // Static methods interact with static vars
   static void staticIncreaseCounter() {
-    Main.counter += 1;
+    StaticExample.counter += 1;
   }
   
   public static void main(String[] args) {
