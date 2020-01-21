@@ -7,10 +7,13 @@ public class Volume{
 
     public int MIN_VOL = 0;
     public int MAX_VOL = 100 ; 
+    
+    //rename for clarity
+    static int vol;
 
-    static int Volume ;
-
-    volumeUp() {
+    //needed access modifier and return type
+    //added static so could be used in main class
+    public static void volumeUp() {
         main.Volume++;
     }
 
