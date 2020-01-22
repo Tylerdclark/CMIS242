@@ -4,7 +4,7 @@
 ** and over commented
 */
 
-class StaticExample {
+public class StaticExample {
   
   // There can be only one...
   static int counter = 0;
