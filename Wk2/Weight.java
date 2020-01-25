@@ -19,8 +19,6 @@ class Weight{
       return false;
     }
   }
-  
-
   /*
    ** adds the weight arg to the weight obj on which it is called, then calls
    * normalize
@@ -29,6 +27,19 @@ class Weight{
     this.pounds += w.pounds;
     this.ounces += w.ounces; 
     this.normalize();
+  }
+  /*
+  ** takes an int and divides the toOunces values by it before assigning it 
+  ** to the object and then normalizes it
+  */
+  public void divide(int divisor){
+    double dividedOz = this.toOunces()/divisor;
+    this.ounces = dividedOz;
+    this.normalize();
+  }
+  public String toString(){
+    String ozString = String.format("%.3f",this.ounces);
+    return this.pounds+" lbs"+ozString+" lbs";
   }
   /* 
   ** takes the number of lbs in the weight object and multiplies 
