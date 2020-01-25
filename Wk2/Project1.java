@@ -2,10 +2,9 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 class Project1{
-    JButton open = new JButton();
-    JFileChooser fc = new JFileChooser();
+    
+    
+    public Weight[] getFile(){
 
-    public static void main(String args) {
-        
     } 
 }
