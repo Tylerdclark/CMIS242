@@ -3,14 +3,10 @@ class Weight{
   private double ounces;
   private static final double CONSTANT = 16.000;
 
-  /* constructor to hold lbs and oz it uses the same mechanism
-  ** as normalize() to take one value and turn it into lb and oz
-  */
-  
-  public Weight(double values){
-    double v = values;
-    this.pounds = (int) (v/CONSTANT);
-    this.ounces = v - (CONSTANT * this.pounds);
+  // constructor to hold lbs and oz
+  public Weight(int p, double o){
+    this.pounds = p;
+    this.ounces = o;
   }
   /* Returns true if the weight object is less
   ** than the one passed as an arg
