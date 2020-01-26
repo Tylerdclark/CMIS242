@@ -1,6 +1,7 @@
 class Weight{
   private int pounds;
   private double ounces;
+  private static final double CONSTANT = 16.000;
 
   //constructor to hold lbs and oz
   public Weight(int lb, double oz){
@@ -11,8 +12,6 @@ class Weight{
   ** than the one passed as an arg
   */
   public boolean lessThan(Weight w){
-    //this won't work bcuz 1.15 < 2.01 would be false
-    //so just call toOunces 
     if (this.toOunces() < w.toOunces()) {
       return true;
     } else {
@@ -39,14 +38,14 @@ class Weight{
   }
   public String toString(){
     String ozString = String.format("%.3f",this.ounces);
-    return this.pounds+" lbs"+ozString+" lbs";
+    return this.pounds+" lbs "+ozString+" oz";
   }
   /* 
   ** takes the number of lbs in the weight object and multiplies 
   ** by 16 then adds weight objects oz plus the new oz
   */
   private double toOunces() {
-    double lbOunces = this.pounds * 16;
+    double lbOunces = this.pounds * CONSTANT;
     double totalOunces = this.ounces + lbOunces;
     return totalOunces;
   }
@@ -56,10 +55,8 @@ class Weight{
   ** for the result of a division of 16
   */
   private void normalize() {
-    if (this.ounces > 16){
-      double difference = this.ounces - 16;
-      this.pounds++;
-      this.ounces = difference;
-    }
+    double convertedToOz = this.toOunces();
+    this.pounds = (int) (convertedToOz / CONSTANT);
+    this.ounces = convertedToOz - (CONSTANT * this.pounds);
   }
 }
