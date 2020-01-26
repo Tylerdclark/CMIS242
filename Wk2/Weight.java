@@ -3,10 +3,14 @@ class Weight{
   private double ounces;
   private static final double CONSTANT = 16.000;
 
-  //constructor to hold lbs and oz
-  public Weight(int lb, double oz){
-    this.pounds = lb;
-    this.ounces = oz;
+  /* constructor to hold lbs and oz it uses the same mechanism
+  ** as normalize() to take one value and turn it into lb and oz
+  */
+  
+  public Weight(double values){
+    double v = values;
+    this.pounds = (int) (v/CONSTANT);
+    this.ounces = v - (CONSTANT * this.pounds);
   }
   /* Returns true if the weight object is less
   ** than the one passed as an arg
@@ -36,6 +40,10 @@ class Weight{
     this.ounces = dividedOz;
     this.normalize();
   }
+  /*
+  ** overrides the object toString method, this will make it easier to just simply 
+  ** print the weight objects without trying to call a method
+  */
   public String toString(){
     String ozString = String.format("%.3f",this.ounces);
     return this.pounds+" lbs "+ozString+" oz";
