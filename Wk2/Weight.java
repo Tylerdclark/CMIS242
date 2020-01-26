@@ -1,3 +1,10 @@
+/* 
+* File Name: Weight.java
+* Author: Tyler D Clark
+* Date: 25 Jan 2020
+* Purpose: Contains the weight class constructor and methods for the creation and 
+* manipulation of Weight objects.
+*/
 class Weight{
   private int pounds;
   private double ounces;
@@ -8,9 +15,8 @@ class Weight{
     this.pounds = p;
     this.ounces = o;
   }
-  /* Returns true if the weight object is less
-  ** than the one passed as an arg
-  */
+   
+  // Returns true if the weight object is less than the one passed as an arg
   public boolean lessThan(Weight w){
     if (this.toOunces() < w.toOunces()) {
       return true;
@@ -18,49 +24,46 @@ class Weight{
       return false;
     }
   }
-  /*
-   ** adds the weight arg to the weight obj on which it is called, then calls
-   * normalize
-   */
+  // adds the weight arg to the weight obj on which it is called then normalizes
   public void addTo(Weight w){
-    this.pounds += w.pounds;
-    this.ounces += w.ounces; 
+    this.ounces += w.toOunces(); 
     this.normalize();
   }
   /*
-  ** takes an int and divides the toOunces values by it before assigning it 
-  ** to the object and then normalizes it
+  takes an int and divides the toOunces values by it before assigning it 
+  to the object and then normalizes it. Don't wanna divide by 0.
   */
   public void divide(int divisor){
-    double dividedOz = this.toOunces()/divisor;
-    this.ounces = dividedOz;
-    this.normalize();
+    if (divisor != 0) {
+      this.ounces = (this.toOunces() / divisor);
+      this.pounds = 0;
+      this.normalize();
+    }
   }
   /*
-  ** overrides the object toString method, this will make it easier to just simply 
-  ** print the weight objects without trying to call a method
+  overrides the object toString method, this will make it easier to just simply 
+  print the weight objects without trying to call a method
   */
   public String toString(){
     String ozString = String.format("%.3f",this.ounces);
     return this.pounds+" lbs "+ozString+" oz";
   }
   /* 
-  ** takes the number of lbs in the weight object and multiplies 
-  ** by 16 then adds weight objects oz plus the new oz
+  takes the number of lbs in the weight object and multiplies 
+  by 16 then adds weight objects oz plus the new oz
   */
   private double toOunces() {
-    double lbOunces = this.pounds * CONSTANT;
-    double totalOunces = this.ounces + lbOunces;
+    double totalOunces = this.pounds *CONSTANT + this.ounces;
     return totalOunces;
   }
   /*
-  ** if there are more than 16 ounces, will increment lbs
-  ** I might can this to call toOunces, and then increment lbs
-  ** for the result of a division of 16
+  the hero of this program. checks if ounces are more than allowed
+  before narrow casting them to lbs and putting the remainder as oz
   */
   private void normalize() {
-    double convertedToOz = this.toOunces();
-    this.pounds = (int) (convertedToOz / CONSTANT);
-    this.ounces = convertedToOz - (CONSTANT * this.pounds);
+    if (ounces >= 16) {
+      this.pounds += (int) (this.ounces / CONSTANT);
+      this.ounces = this.ounces % CONSTANT;
+    }
   }
 }
