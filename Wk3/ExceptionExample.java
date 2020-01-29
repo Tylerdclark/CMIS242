@@ -15,7 +15,4 @@ public class ExceptionExample {
             System.out.println("Needs to be ints");
         }
     }
-    public int[] getIntArray(File file) throws notIntException {
-        
-    }
 }
