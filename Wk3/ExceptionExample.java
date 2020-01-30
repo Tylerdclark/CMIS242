@@ -1,21 +1,29 @@
+import java.io.File;
+
+import javax.swing.JFileChooser;
+
 public class ExceptionExample {
     public static void main(String[] args) {
 
     }
     public File getFile() {
         try{
-            choser = new JFileChooser();
+            JFileChooser chooser = new JFileChooser();
             chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-            response = chooser.showOpenDialog(null);
+            int response = chooser.showOpenDialog(null);
             if (response == JFileChooser.APPROVE_OPTION) {
-                file = chooser.getSelectedFile();
-                file.getIntArray();
+                File file = chooser.getSelectedFile();
+                getIntArray(file);
             }
-        } catch (notIntException) {
+        } catch (Exception) {
             System.out.println("Needs to be ints");
         }
     }
-    public int[] getIntArray(File file) throws notIntException {
+    public int[] getIntArray(File file) throws Exception {
+        if (this.file == null) {
+            throw new Exception("No file");
+
+        }
         
     }
 }
