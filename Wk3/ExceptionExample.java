@@ -19,11 +19,4 @@ public class ExceptionExample {
             System.out.println("Needs to be ints");
         }
     }
-    public int[] getIntArray(File file) throws Exception {
-        if (this.file == null) {
-            throw new Exception("No file");
-
-        }
-        
-    }
 }
