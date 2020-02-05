@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+
+
+//note that it extends JFrame
 public class GimmeGui extends JFrame {
 
     public GimmeGui () {
@@ -12,6 +15,10 @@ public class GimmeGui extends JFrame {
       setSize (200,200);
       setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
       setLocationRelativeTo (null);
+      //adding the buttons
+      //we can add anything that extends JComponent
+      //add lets you add in a new component
+
       add (new JButton ("North " + t), BorderLayout.NORTH);
       add (new JButton ("East " + t), BorderLayout.EAST);
       add (new JButton ("West " + t), BorderLayout.WEST);
