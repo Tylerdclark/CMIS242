@@ -1,34 +1,50 @@
 import java.awt.event.ActionListener;
 import java.util.concurrent.ThreadLocalRandom;
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class GimmeGui implements ActionListener {
-
   private JFrame myFrame;
-  
 
-  //put it in a method for aethstetics
-  public GimmeGui(){
+  // put it in a method for aethstetics
+  public GimmeGui() {
     myFrame = new JFrame("Windowception");
     myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    myFrame.setSize(300, 300);
+    myFrame.setSize(300, 100);
+    // splitting it into two panels with box layout
+    JPanel upperPanel = new JPanel();
+    JPanel lowerPanel = new JPanel();
+    // manage them with boxlayout
+    BoxLayout upperPanelLayoutManager = new BoxLayout(upperPanel, BoxLayout.X_AXIS);
+    upperPanel.setLayout(upperPanelLayoutManager);
+    BoxLayout lowerPanelLayoutManager = new BoxLayout(lowerPanel, BoxLayout.X_AXIS);
+    lowerPanel.setLayout(lowerPanelLayoutManager);
+    // add them to a mainpanel before adding it to the frame
+    JPanel mainPanel = new JPanel(new BorderLayout());
+    mainPanel.add(upperPanel, BorderLayout.NORTH);
+    mainPanel.add(lowerPanel, BorderLayout.SOUTH);
+    myFrame.add(mainPanel);
 
-    //make a label
+    // make a label
     JLabel label = new JLabel("Press the button to make another window");
-    label.setHorizontalAlignment(JLabel.CENTER);
-    label.setVerticalAlignment(JLabel.NORTH);
-    myFrame.add(label);
+    upperPanel.add(label);
 
+
+
+    // make a button
     JButton newWindow = new JButton("New Window");
     newWindow.addActionListener(this);
-    myFrame.add(newWindow);
+    lowerPanel.add(newWindow);
   }
 
   public void actionPerformed(java.awt.event.ActionEvent e) {
-    GimmeGui gimmeGui = new GimmeGui();
-    gimmeGui.show();
+      GimmeGui gimmeGui = new GimmeGui();
+      gimmeGui.show();
   }
 
   //show method.. can run in background
