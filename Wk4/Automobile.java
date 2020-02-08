@@ -8,18 +8,20 @@ class Automobile {
         this.make = make;
         this.purchasePrice = purchasePrice;
     }
-    //crreating a salesTax method using type casting
+    // 5 percent sales tax
     public float salesTax(){
-        float tax = (this.purchasePrice * (5 / 100.0f));
+        float tax = (this.purchasePrice * (5 / 100.00f));
         return tax;
     }
-    /* A toString method that returns a string containing the
-make and model of the automobile, the sales price, and the
-sales tax, appropriately labeled.
-    *
-    */
+    // using string format method to get salestax to two decimals
     public String toString() {
-
-        return "Make and Model :"+ this.make;  
+        String salesTax = String.format("%.02f", this.salesTax());
+        return "Make and Model: "+ this.make +
+        "\nSales Price: "+ this.purchasePrice +
+        "\nSales Tax: "+ salesTax;  
+    }
+    public static void main(String[] args) {
+        Automobile a = new Automobile("Honda", 100);
+        System.out.println(a);
     }
 }
