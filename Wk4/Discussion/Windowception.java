@@ -1,3 +1,5 @@
+package Discussion;
+
 import java.awt.event.ActionListener;
 import java.util.concurrent.ThreadLocalRandom;
 import java.awt.BorderLayout;
