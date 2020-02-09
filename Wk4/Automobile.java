@@ -1,7 +1,8 @@
 class Automobile {
-    String make;
-    String model;
-    int purchasePrice;
+    //protected for style points
+    protected String make;
+    protected String model;
+    protected int purchasePrice;
 
     //plain jane constructor
     public Automobile(String make, String model, int purchasePrice) {
@@ -24,7 +25,9 @@ class Automobile {
     public static void main(String[] args) {
         Automobile a = new Automobile("Honda", "Civic", 100);
         System.out.println(a);
-        Electric e = new Electric("Tesla", "model X", 50000, 5000);
+        Electric e = new Electric("Tesla", "model X", 50000, 2900);
         System.out.println(e);
+        Hybrid h = new Hybrid("Toyota", "Prius", 10000, 42);
+        System.out.println(h);
     }
 }
