@@ -1,8 +1,8 @@
 public class Hybrid extends Automobile {
     private int milesPerGallon;
 
-    public Hybrid(String make, String model, int purchasePrice, int milesPerGallon) {
-        super(make, model, purchasePrice);
+    public Hybrid(String makeAndModel, int purchasePrice, int milesPerGallon) {
+        super(makeAndModel, purchasePrice);
         this.milesPerGallon = milesPerGallon;
     }
     /*  The sales tax for a hybrid automobile consists of the base sales tax of 5% minus a discount.
@@ -26,8 +26,8 @@ public class Hybrid extends Automobile {
     //overriden toString method
     public String toString() {
         String salesTax = String.format("%.02f", this.salesTax());
-        return "Make and Model: "+ this.make + " " + this.model +
+        return "Make and Model: "+  this.makeAndModel +
         "\nSales Price: "+ this.purchasePrice +
-        "\nSales Tax: "+ salesTax + "\nMPG: " + this.milesPerGallon;
+        "\nSales Tax: "+ salesTax + "\nMPG: " + this.milesPerGallon+ "\n";
     }
 }

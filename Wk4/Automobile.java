@@ -1,13 +1,11 @@
 class Automobile {
     //protected for style points
-    protected String make;
-    protected String model;
+    protected String makeAndModel;
     protected int purchasePrice;
 
     //plain jane constructor
-    public Automobile(String make, String model, int purchasePrice) {
-        this.make = make;
-        this.model = model;
+    public Automobile(String makeAndModel, int purchasePrice) {
+        this.makeAndModel = makeAndModel;
         this.purchasePrice = purchasePrice;
     }
     // 5 percent sales tax
@@ -18,16 +16,8 @@ class Automobile {
     // using string format method to get salestax to two decimals
     public String toString() {
         String salesTax = String.format("%.02f", this.salesTax());
-        return "Make and Model: "+ this.make + " " + this.model +
+        return "Make and Model: "+ this.makeAndModel +
         "\nSales Price: "+ this.purchasePrice +
-        "\nSales Tax: "+ salesTax + "\n";  
-    }
-    public static void main(String[] args) {
-        Automobile a = new Automobile("Honda", "Civic", 100);
-        System.out.println(a);
-        Electric e = new Electric("Tesla", "model X", 50000, 2900);
-        System.out.println(e);
-        Hybrid h = new Hybrid("Toyota", "Prius", 10000, 42);
-        System.out.println(h);
+        "\nSales Tax: "+ salesTax + "\n" + this.getClass().getSimpleName()+ "\n";  
     }
 }

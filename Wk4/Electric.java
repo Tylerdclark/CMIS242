@@ -1,8 +1,8 @@
 public class Electric extends Automobile{
     private int weight;
 
-    public Electric(String make, String model, int purchasePrice, int weight) {
-        super(make, model, purchasePrice);
+    public Electric(String makeAndModel, int purchasePrice, int weight) {
+        super(makeAndModel, purchasePrice);
         this.weight = weight;
 
     }
@@ -22,7 +22,7 @@ public class Electric extends Automobile{
     // Overrriden toString method
     public String toString() {
         String salesTax = String.format("%.02f", this.salesTax());
-        return "Make and Model: "+ this.make + " " + this.model +
+        return "Make and Model: "+  this.makeAndModel +
         "\nSales Price: "+ this.purchasePrice +
         "\nSales Tax: "+ salesTax + "\nWeight " + this.weight + "\n";  
     }    
