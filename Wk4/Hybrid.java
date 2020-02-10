@@ -1,3 +1,9 @@
+/* 
+* File Name: Hybrid.java
+* Author: Tyler D Clark
+* Date: 9 Feb 2020
+* Purpose: Subclass of Automobile. Overrides salesTax() and toString()
+*/
 public class Hybrid extends Automobile {
     private int milesPerGallon;
 
@@ -27,7 +33,7 @@ public class Hybrid extends Automobile {
     public String toString() {
         String salesTax = String.format("%.02f", this.salesTax());
         return "Make and Model: "+  this.makeAndModel +
-        "\nSales Price: "+ this.purchasePrice +
-        "\nSales Tax: "+ salesTax + "\nMPG: " + this.milesPerGallon+ "\n";
+        "\nSales Price: "+ this.purchasePrice + "\nSales Tax: "+ salesTax + 
+        "\n" + this.getClass().getSimpleName()+ "\nMPG: " + this.milesPerGallon+ "\n\n";
     }
 }

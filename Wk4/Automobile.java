@@ -1,3 +1,9 @@
+/* 
+* File Name: Automobile.java
+* Author: Tyler D Clark
+* Date: 9 Feb 2020
+* Purpose: Base class for the car objects. Electric and Hybrid inherit from this
+*/
 class Automobile {
     //protected for style points
     protected String makeAndModel;
@@ -18,6 +24,6 @@ class Automobile {
         String salesTax = String.format("%.02f", this.salesTax());
         return "Make and Model: "+ this.makeAndModel +
         "\nSales Price: "+ this.purchasePrice +
-        "\nSales Tax: "+ salesTax + "\n" + this.getClass().getSimpleName()+ "\n";  
+        "\nSales Tax: "+ salesTax + "\n\n";  
     }
 }

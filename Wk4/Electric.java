@@ -1,3 +1,9 @@
+/* 
+* File Name: Electric.java
+* Author: Tyler D Clark
+* Date: 9 Feb 2020
+* Purpose: Subclass of Automobile. Overrides salesTax() and toString()
+*/
 public class Electric extends Automobile{
     private int weight;
 
@@ -24,6 +30,7 @@ public class Electric extends Automobile{
         String salesTax = String.format("%.02f", this.salesTax());
         return "Make and Model: "+  this.makeAndModel +
         "\nSales Price: "+ this.purchasePrice +
-        "\nSales Tax: "+ salesTax + "\nWeight " + this.weight + "\n";  
+        "\nSales Tax: "+ salesTax + "\n" + this.getClass().getSimpleName() +
+        "\nWeight " + this.weight + "\n\n";  
     }    
 }
