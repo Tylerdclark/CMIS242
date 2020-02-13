@@ -5,7 +5,7 @@ interface media {
     }
 interface sound{
     //same goes for sound
-    public void propogateNoise();
+    public void propagateNoise();
 }    
 
 //multiple interfaces can be implemented
@@ -16,7 +16,7 @@ public class music implements media, sound{
         System.out.println("I'm playing music");
     }
     @Override
-    public void propogateNoise() {
+    public void propagateNoise() {
         System.out.println("I'm vibrating air!");
     }
 
@@ -24,6 +24,6 @@ public class music implements media, sound{
         
         music m = new music();
         m.play();
-        m.propogateNoise();
+        m.propagateNoise();
     }
 }
