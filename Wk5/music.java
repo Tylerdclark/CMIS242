@@ -8,7 +8,7 @@ interface sound{
     public void propogateNoise();
 }    
 
-//multiple inteferfaces can be implemented
+//multiple interfaces can be implemented
 public class music implements media, sound{
 
     @Override

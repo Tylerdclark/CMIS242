@@ -29,7 +29,7 @@ Code example :
         public void propogateNoise();
     }
 
-    //multiple inteferfaces can be implemented
+    //multiple interfaces can be implemented
     public class music implements media, sound{
 
         @Override
@@ -48,3 +48,4 @@ Code example :
             m.propogateNoise();
         }
     }
+The main points here are that there are several media and need to play (TV, Movies) and several things that make sound (talking, explosions, etc). And thus the need for an interface arises. My one confusion is that with deafult methods, it doesn't really seem like there is a need for abstract methods anymore, beyond specific use cases.
