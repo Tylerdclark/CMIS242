@@ -1,4 +1,4 @@
-# Week 1 Discussion
+# Week 1 Discussion - Class variables and methods
 
 ## Explain how class (static) variables and methods differ from their instance counterparts
 
