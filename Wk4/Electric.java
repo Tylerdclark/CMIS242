@@ -16,6 +16,9 @@ public class Electric extends Automobile{
     *   to all automobiles minus a discount. If the weight is less than 3000 pounds the discount 
     *   is $200. Otherwise it is $150.
     */
+
+
+
     public float salesTax(){
         float tax = (this.purchasePrice * (5 / 100.00f));
         if (this.weight < 3000) {
@@ -23,6 +26,7 @@ public class Electric extends Automobile{
         } else {
             tax = tax - 150;
         }
+        //TODO: use math.max to avoid the number being below 0
         return tax;
     }
     // Overrriden toString method
