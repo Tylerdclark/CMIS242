@@ -2,7 +2,7 @@
 
 ## What does the super keyword represents and where can it be used?
 
-The super keyword is a reference variable which is a tool of inheritance. Super becomes super useful when trying to inherit things from the parent class. It can be used on things like variables, methods, and even constructors.
+The super keyword is a reference variable which is a tool of inheritance. Super becomes *super* useful when trying to inherit things from the parent class. It can be used on things like variables, methods, and even constructors.
 
 ## Give an example of a superclass and subclass. Be sure to make all the instances variables of the super class private. Include at least one constructor in each class and ensure that the constructor of the subclass calls the constructor of the superclass. Also include a toString method in both classes that returns the values of the instance variables with appropriate labels. Ensure that the toString method of subclass calls the toString method of the superclass so that the string returned contains the values of all the inherited instance variables
 
