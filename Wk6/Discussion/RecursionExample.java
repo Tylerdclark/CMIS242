@@ -10,12 +10,15 @@ public class RecursionExample {
     }
 
     public static int sumNum(int n) {
+        //uncomment below to watch the numbers being passed into this method
+        //System.out.println(n);
         if ( n < 0) {
             System.out.print("This number will cause infinite recursion!: ");
             return n;
         // this if statement breaks out of the recursion    
         }if (n == 1) {
             return n;
+        // the method itself is being called on the number sub one    
         }else {
             return (n + sumNum(n - 1));
         }
