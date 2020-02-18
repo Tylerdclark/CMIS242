@@ -1,3 +1,4 @@
+package Discussion;
 
 interface media {
     //play must be implemented by classes that implement media

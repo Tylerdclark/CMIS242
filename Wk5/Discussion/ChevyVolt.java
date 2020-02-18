@@ -1,6 +1,8 @@
+package Discussion;
+
 /**
- * This is a peer's code that I added a default method to in order 
- * to show its uses
+ * This is a peer's code that I added a default method to in order to show its
+ * uses
  */
 interface Car{
 

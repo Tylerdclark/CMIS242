@@ -1,3 +1,5 @@
+package Discussion;
+
 import java.io.IOException;
 
 public class ExampleException {
