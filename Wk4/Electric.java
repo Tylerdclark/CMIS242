@@ -26,7 +26,6 @@ public class Electric extends Automobile{
         } else {
             tax = tax - 150;
         }
-        //TODO: use math.max to avoid the number being below 0
         return tax;
     }
     // Overrriden toString method
