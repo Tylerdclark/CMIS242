@@ -1,13 +1,13 @@
 public class IterativeExample {
     public static void main(String[] args) {
-        
+        System.out.println(sumNum(10));
     }
 
-    public static void sumNum(int n) {
-
-        int divisor = n/2;
-        while (divisor != 0) {
-
+    public static int sumNum(int n) {
+        int total = 0;
+        for (int i = n; i > 0; i--){
+            total += i;
         }
+        return total;
     }
 }
