@@ -19,7 +19,7 @@ class Automobile {
         float tax = (this.purchasePrice * (5 / 100.00f));
         return tax;
     }
-    // using string format method to get salestax to two decimals
+    // using string format method to get sales tax to two decimals
     public String toString() {
         String salesTax = String.format("%.02f", this.salesTax());
         return "Make and Model: "+ this.makeAndModel +
