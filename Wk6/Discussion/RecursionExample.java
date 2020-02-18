@@ -10,8 +10,6 @@ public class RecursionExample {
     }
 
     public static int sumNum(int n) {
-        //uncomment below to watch the numbers being passed into this method
-        //System.out.println(n);
         if ( n < 0) {
             System.out.print("This number will cause infinite recursion!: ");
             return n;
