@@ -1,3 +1,5 @@
+package Wk2;
+
 /* 
 * File Name: Project1.java
 * Author: Tyler D Clark

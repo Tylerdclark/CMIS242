@@ -1,3 +1,5 @@
+package Wk1.Discussion;
+
 /* This is my submission to 
 ** show the use of the static
 ** modifier. It is very simple
@@ -21,7 +23,7 @@ public class StaticExample {
   public static void main(String[] args) {
   System.out.println(counter);
   
-  //Uncommenting below will cause error
+  //Un-commenting below will cause error
   //increaseCounter();
   
   //static methods can be called without an object

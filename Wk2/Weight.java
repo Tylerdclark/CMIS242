@@ -1,3 +1,5 @@
+package Wk2;
+
 /* 
 * File Name: Weight.java
 * Author: Tyler D Clark
