@@ -1,3 +1,5 @@
+package Wk4;
+
 /* 
 * File Name: Electric.java
 * Author: Tyler D Clark

@@ -1,4 +1,4 @@
-package Discussion;
+package Wk4.Discussion;
 
 import java.awt.event.ActionListener;
 import java.util.concurrent.ThreadLocalRandom;

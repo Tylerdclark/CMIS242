@@ -1,4 +1,4 @@
-package Discussion;
+package Wk5.Discussion;
 
 /**
  * This is a peer's code that I added a default method to in order to show its

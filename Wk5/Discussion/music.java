@@ -1,4 +1,4 @@
-package Discussion;
+package Wk5.Discussion;
 
 interface media {
     //play must be implemented by classes that implement media

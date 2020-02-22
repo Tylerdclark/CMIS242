@@ -1,3 +1,5 @@
+package Wk6.Discussion;
+
 /**
 * File Name: IterativeExample.java
 * Author: Tyler D Clark

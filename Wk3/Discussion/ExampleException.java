@@ -1,4 +1,4 @@
-package Discussion;
+package Wk3.Discussion;
 
 import java.io.IOException;
 
