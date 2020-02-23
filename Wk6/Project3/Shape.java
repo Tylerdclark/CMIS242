@@ -20,12 +20,37 @@ public abstract class Shape extends Rectangle {
 	 * position of the shape, the color of the shape and whether the shape is solid or 
 	 * hollow. It should also update the number of shapes created so far.*/
 	
-	public Shape (Rectangle dimensionsAndPosition, Color color, String sOrH) {
+	public Shape (Rectangle dimensionsAndPosition, String color, String sOrH) {
 		this.height = dimensionsAndPosition.height;
 		this.width = dimensionsAndPosition.width;
 		this.x = dimensionsAndPosition.x;
 		this.y = dimensionsAndPosition.y;
-		this.color = color;
+		switch (color) {
+		
+		case "Black":
+			this.color = Color.black;
+			break;
+		case "Red":
+			this.color = Color.red;
+			break;
+		case "Orange":
+			this.color = Color.orange;
+			break;
+		case "Yellow":
+			this.color = Color.yellow;
+			break;
+		case "Green":
+			this.color = Color.green;
+			break;
+		case "Blue":
+			this.color = Color.blue;
+			break;
+		case "Magenta":
+			this.color = Color.magenta;
+			break;
+		default:
+			break;
+		}
 		this.solidOrHollow = shapeType.valueOf(sOrH);
 		shapeCount++;
 	}
