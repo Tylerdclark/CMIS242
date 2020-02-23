@@ -1,6 +1,8 @@
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
@@ -22,66 +24,124 @@ public class Project3 extends JFrame {
         setTitle("Geometric Drawing");
         setSize(420, 230);
         setVisible(true);
-        //setResizable(false);
+        setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // main panel
 
         JPanel mainPanel = new JPanel();
-        mainPanel.setPreferredSize(new Dimension(500, 230));
+        mainPanel.setPreferredSize(new Dimension(500, 250));
         mainPanel.setVisible(true);
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-        mainPanel.setBackground(Color.RED);
         this.add(mainPanel);
         
         // top panel
         JPanel topPanel = new JPanel();
         topPanel.setPreferredSize(new Dimension(400, 200));
         topPanel.setVisible(true);
-        topPanel.setBackground(Color.BLUE);
-        topPanel.setLayout(new FlowLayout());
+        topPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         mainPanel.add(topPanel);
+        
+        
+        
         
         // bottom panel
         
         JPanel bottomPanel = new JPanel();
         bottomPanel.setPreferredSize(new Dimension(200, 25));
         bottomPanel.setVisible(true);
-        bottomPanel.setBackground(Color.ORANGE);
         bottomPanel.setLayout(new FlowLayout());
         mainPanel.add(bottomPanel);
-        
         JButton drawButton = new JButton("Draw");
+       
+        
         bottomPanel.add(drawButton);
         
         // left top panel
         
-        JLabel shapetypeJLabel = new JLabel("Shape Type");
-        JPanel leftTopPanel = new JPanel();
+        JPanel leftTopPanel = new JPanel(new GridLayout(7, 2));
+        JLabel shapeTypeJLabel = new JLabel("Shape Type");
+        String[] shapeList = {"Rectangle", "Oval"};
+        JComboBox<String> shapeTypeListBox = new JComboBox<String>(shapeList);
+        JLabel fillTypeJLabel = new JLabel("Fill Type");
+        String[] fillList = {"Solid", "Hollow"};
+        JComboBox<String> fillTypeListBox = new JComboBox<String>(fillList);
+        JLabel colorJLabel = new JLabel("Color");
+        String[] colorList = {"Black", "Red", "Orange", "Yellow", "Green", "Blue", "Magenta" };
+        JComboBox<String> colorListBox = new JComboBox<String>(colorList);
+        JLabel widthJLabel = new JLabel("Width");     
+        JTextField widthField = new JTextField();        
+        JLabel heightJLabel = new JLabel("Height");       
+        JTextField heightField = new JTextField();  
+        JLabel xJLabel = new JLabel("X Coordinate");
+        JTextField xField = new JTextField();
+        JLabel yJLabel = new JLabel("Y Coordinate");
+        JTextField yField = new JTextField();
+        
+        
         
         leftTopPanel.setPreferredSize(new Dimension(200, 200));
         leftTopPanel.setVisible(true);
-        leftTopPanel.setBackground(Color.GREEN);
-        leftTopPanel.setLayout(new GridLayout(7, 2));
-        leftTopPanel.add(shapetypeJLabel);
+        leftTopPanel.add(shapeTypeJLabel);
+        leftTopPanel.add(shapeTypeListBox);
+		leftTopPanel.add(fillTypeJLabel);
+		leftTopPanel.add(fillTypeListBox);
+		leftTopPanel.add(colorJLabel);
+		leftTopPanel.add(colorListBox);
+		leftTopPanel.add(widthJLabel);
+		leftTopPanel.add(widthField);
+		leftTopPanel.add(heightJLabel);
+		leftTopPanel.add(heightField);
+		leftTopPanel.add(xJLabel);
+		leftTopPanel.add(xField);
+		leftTopPanel.add(yJLabel);
+		leftTopPanel.add(yField);
         topPanel.add(leftTopPanel);
-        
-        //TODO: add buttons and fields
         
         // right top panel
         
-        JPanel rightTopPanel = new JPanel();
+        JPanel rightTopPanel = new Drawing();
         rightTopPanel.setPreferredSize(new Dimension(200, 200));
+        rightTopPanel.setBorder(BorderFactory.createTitledBorder("Shape Drawing"));
         rightTopPanel.setVisible(true);
-        rightTopPanel.setBackground(Color.YELLOW);
         rightTopPanel.setLayout(new FlowLayout());
         topPanel.add(rightTopPanel);
         
+        drawButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					int tempWidth = Integer.parseInt(widthField.getText());
+					int tempHeight = Integer.parseInt(heightField.getText());
+					int tempX = Integer.parseInt(xField.getText());
+					int tempY = Integer.parseInt(yField.getText());
+					Rectangle tempRectangle = new Rectangle(tempX, tempY, tempWidth, tempHeight);
+					String tempColor = (String) colorListBox.getSelectedItem();
+					String tempFillType = (String) fillTypeListBox.getSelectedItem();
+					String tempShapeType = (String) shapeTypeListBox.getSelectedItem();
+					
+					if (tempShapeType.equals("Rectangle") ) {
+						Rectangular tempShape = new Rectangular(tempRectangle, tempColor, tempFillType);
+						
+					} 
+					if (tempShapeType.equals("Oval")) {
+						Oval tempShape = new Oval(tempRectangle, tempColor, tempFillType);
+					}
+				} catch (NumberFormatException nfException) {
+					JOptionPane.showMessageDialog(getParent(), "Must be an Integer", "Error", JOptionPane.WARNING_MESSAGE);
+				}
+
+				
+			}
+		});
+        
+        
+
+        
         this.pack();
     }
-//    private JPanel leftPanel() {
-//    	
-//    }
+
 
     public static void main(final String[] args) {
 		
