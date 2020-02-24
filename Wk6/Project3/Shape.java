@@ -3,11 +3,10 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public abstract class Shape extends Rectangle {
-	
+
+	private static final long serialVersionUID = 1L;
 	private Color color;
-	
 	private shapeType solidOrHollow;
-	
 	public enum shapeType{
 		Solid,
 		Hollow;
@@ -20,37 +19,12 @@ public abstract class Shape extends Rectangle {
 	 * position of the shape, the color of the shape and whether the shape is solid or 
 	 * hollow. It should also update the number of shapes created so far.*/
 	
-	public Shape (Rectangle dimensionsAndPosition, String color, String sOrH) {
+	public Shape (Rectangle dimensionsAndPosition, Color color, String sOrH) {
 		this.height = dimensionsAndPosition.height;
 		this.width = dimensionsAndPosition.width;
 		this.x = dimensionsAndPosition.x;
 		this.y = dimensionsAndPosition.y;
-		switch (color) {
-		
-		case "Black":
-			this.color = Color.black;
-			break;
-		case "Red":
-			this.color = Color.red;
-			break;
-		case "Orange":
-			this.color = Color.orange;
-			break;
-		case "Yellow":
-			this.color = Color.yellow;
-			break;
-		case "Green":
-			this.color = Color.green;
-			break;
-		case "Blue":
-			this.color = Color.blue;
-			break;
-		case "Magenta":
-			this.color = Color.magenta;
-			break;
-		default:
-			break;
-		}
+		this.color = color;
 		this.solidOrHollow = shapeType.valueOf(sOrH);
 		shapeCount++;
 	}
@@ -59,7 +33,8 @@ public abstract class Shape extends Rectangle {
 	 * and sets the color for the next draw operation to the color of the current shape.*/
 	
 	public void setColor(Graphics g) {
-		this.color = g.getColor();
+		g.setColor(this.color);
+		System.out.println(g.toString());
 		
 	}
 	
@@ -80,7 +55,7 @@ public abstract class Shape extends Rectangle {
 	/* A class method named getNoOfShapes that returns the number of shapes created 
 	 * so far.*/
 	
-	public int getNoOfShapes () {
+	public static int getNoOfShapes () {
 		return shapeCount;
 	}
 	

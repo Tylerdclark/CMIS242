@@ -3,21 +3,14 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Field;
+
 import javax.swing.*;
 
 
-
-
-/**
- * 
- */
-
-/**
- * @author tylerclark
- *
- */
-
 public class Project3 extends JFrame {
+
+	private static final long serialVersionUID = 1L;
 
 	public Project3() {
 
@@ -41,9 +34,6 @@ public class Project3 extends JFrame {
         topPanel.setVisible(true);
         topPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         mainPanel.add(topPanel);
-        
-        
-        
         
         // bottom panel
         
@@ -100,7 +90,7 @@ public class Project3 extends JFrame {
         
         // right top panel
         
-        JPanel rightTopPanel = new Drawing();
+        Drawing rightTopPanel = new Drawing();
         rightTopPanel.setPreferredSize(new Dimension(200, 200));
         rightTopPanel.setBorder(BorderFactory.createTitledBorder("Shape Drawing"));
         rightTopPanel.setVisible(true);
@@ -116,33 +106,58 @@ public class Project3 extends JFrame {
 					int tempHeight = Integer.parseInt(heightField.getText());
 					int tempX = Integer.parseInt(xField.getText());
 					int tempY = Integer.parseInt(yField.getText());
+					
 					Rectangle tempRectangle = new Rectangle(tempX, tempY, tempWidth, tempHeight);
-					String tempColor = (String) colorListBox.getSelectedItem();
+					
+					Color tempColor = stringColor(String.valueOf(colorListBox.getSelectedItem()));
 					String tempFillType = (String) fillTypeListBox.getSelectedItem();
 					String tempShapeType = (String) shapeTypeListBox.getSelectedItem();
 					
+					
 					if (tempShapeType.equals("Rectangle") ) {
-						Rectangular tempShape = new Rectangular(tempRectangle, tempColor, tempFillType);
+						
+						Shape tempShape = new Rectangular(tempRectangle, tempColor, tempFillType);
+						try {
+							rightTopPanel.drawShape(tempShape);
+						} catch (OutsideBounds e1) {
+							JOptionPane.showMessageDialog(getParent(), e1.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
+						}
 						
 					} 
 					if (tempShapeType.equals("Oval")) {
+						
 						Oval tempShape = new Oval(tempRectangle, tempColor, tempFillType);
+						try {
+							rightTopPanel.drawShape(tempShape);
+						} catch (OutsideBounds e1) {
+							JOptionPane.showMessageDialog(getParent(), e1.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
+						}
 					}
 				} catch (NumberFormatException nfException) {
 					JOptionPane.showMessageDialog(getParent(), "Must be an Integer", "Error", JOptionPane.WARNING_MESSAGE);
 				}
 
-				
+
 			}
 		});
         
-        
-
-        
         this.pack();
     }
-
-
+	// with help of this SO comment: https://stackoverflow.com/a/2854058
+	public Color stringColor (String s) {
+		
+		String lowerCase = s.toLowerCase();
+		
+		Color color;
+		try {
+		    Field field = Class.forName("java.awt.Color").getField(lowerCase);
+		    color = (Color)field.get(null);
+		} catch (Exception e) {
+		    color = null; // Not defined
+		}
+		return color;
+	}
+	
     public static void main(final String[] args) {
 		
 		new Project3();

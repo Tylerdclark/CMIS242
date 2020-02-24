@@ -1,9 +1,9 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Rectangular extends Shape {
 	
-
 	private static final long serialVersionUID = 1L;
 	
 	/* A constructor that accepts three parameters for the purpose of initializing the 
@@ -11,7 +11,7 @@ public class Rectangular extends Shape {
 	 * position of the shape, the color of the shape and whether the shape is solid or 
 	 * hollow. */
 	
-	public Rectangular(Rectangle dimensionsAndPosition, String color, String sOrH) {
+	public Rectangular(Rectangle dimensionsAndPosition, Color color, String sOrH) {
 		super(dimensionsAndPosition, color, sOrH);
 
 	}

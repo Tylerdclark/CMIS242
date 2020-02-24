@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -11,7 +12,7 @@ public class Oval extends Shape {
 	
 	private static final long serialVersionUID = 1L;
 
-	public Oval(Rectangle dimensionsAndPosition, String color, String sOrH) {
+	public Oval(Rectangle dimensionsAndPosition, Color color, String sOrH) {
 		super(dimensionsAndPosition, color, sOrH);
 
 	}
