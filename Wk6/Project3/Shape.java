@@ -7,6 +7,7 @@ public abstract class Shape extends Rectangle {
 	private static final long serialVersionUID = 1L;
 	private Color color;
 	private shapeType solidOrHollow;
+	
 	public enum shapeType{
 		Solid,
 		Hollow;
@@ -20,10 +21,7 @@ public abstract class Shape extends Rectangle {
 	 * hollow. It should also update the number of shapes created so far.*/
 	
 	public Shape (Rectangle dimensionsAndPosition, Color color, String sOrH) {
-		this.height = dimensionsAndPosition.height;
-		this.width = dimensionsAndPosition.width;
-		this.x = dimensionsAndPosition.x;
-		this.y = dimensionsAndPosition.y;
+		super(dimensionsAndPosition);
 		this.color = color;
 		this.solidOrHollow = shapeType.valueOf(sOrH);
 		shapeCount++;

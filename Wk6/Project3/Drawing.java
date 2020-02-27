@@ -16,6 +16,7 @@ public class Drawing extends JPanel {
 
 	@Override
 	protected void paintComponent(Graphics g) {
+		//currentShape.setColor(g);
 		g.drawString(String.valueOf(Shape.getNoOfShapes()), 20, 25);
 		if (currentShape instanceof Oval) {
 			if (currentShape.getSolid()) {

@@ -22,7 +22,7 @@ public class Oval extends Shape {
 	
 	@Override
 	void draw(Graphics g) {
-		g.drawOval(this.x, this.y, this.width, this.height);
+		g.drawOval(super.x, super.y, super.width, super.height);
 	}
 
 }
