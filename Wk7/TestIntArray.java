@@ -1,4 +1,4 @@
-package Wk7;
+package wk7;
 
 //TestIntArray.java
 class TestIntArray {

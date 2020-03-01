@@ -1,4 +1,4 @@
-package Wk1.Discussion;
+package wk1.discussion;
 
 /* This is my submission to 
 ** show the use of the static

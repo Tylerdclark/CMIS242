@@ -3,7 +3,7 @@
  * It demonstrates the operations that can be done on an array
  * **** S T U D Y ******** T H I S****
  * */
-package Wk7;
+package wk7;
 
 class IntArray {
 	   private int [] array;

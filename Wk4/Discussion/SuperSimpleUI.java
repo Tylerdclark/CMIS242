@@ -1,4 +1,4 @@
-package Wk4.Discussion;
+package wk4.discussion;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

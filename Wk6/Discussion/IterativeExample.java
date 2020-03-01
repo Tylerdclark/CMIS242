@@ -1,4 +1,4 @@
-package Wk6.Discussion;
+package wk6.discussion;
 
 /**
 * File Name: IterativeExample.java

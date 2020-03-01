@@ -1,4 +1,4 @@
-package Wk1.Discussion;
+package wk1.discussion;
 
 /* This is a peer's code example
 *  It needed a few changes to compile 

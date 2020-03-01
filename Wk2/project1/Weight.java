@@ -1,4 +1,4 @@
-package Wk2;
+package wk2.project1;
 
 /* 
 * File Name: Weight.java

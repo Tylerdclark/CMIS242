@@ -1,4 +1,4 @@
-package Wk7.discussion;
+package wk7.discussion;
 
 import java.util.HashMap;
 import java.util.Iterator;

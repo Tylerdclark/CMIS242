@@ -1,3 +1,5 @@
+package wk6.project3;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 

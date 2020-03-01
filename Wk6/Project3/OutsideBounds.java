@@ -1,3 +1,5 @@
+package wk6.project3;
+
 
 public class OutsideBounds extends Exception {
 	

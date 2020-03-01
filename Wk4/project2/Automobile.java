@@ -1,4 +1,4 @@
-package Wk4;
+package wk4.project2;
 
 /* 
 * File Name: Automobile.java
