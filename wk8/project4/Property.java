@@ -2,18 +2,18 @@ package wk8.project4;
 
 
 public class Property implements StateChangeable<Status> {
-	String propertyAddress;
-	int bedrooms;
-	int squareFootage;
-	int price;
-	Status propertyStatus;
+	private String propertyAddress;
+	private int bedrooms;
+	private int squareFootage;
+	private int price;
+	private Status propertyStatus;
 	
 	
-	public Property(String a, int b, int s, int p) {
-		this.propertyAddress = a;
-		this.bedrooms = b;
-		this.squareFootage = s;
-		this.price = p;
+	public Property(String add, int bed, int sqf, int prc) {
+		this.propertyAddress = add;
+		this.bedrooms = bed;
+		this.squareFootage = sqf;
+		this.price = prc;
 		this.propertyStatus = Status.FOR_SALE;
 	}
 	
@@ -21,8 +21,13 @@ public class Property implements StateChangeable<Status> {
 	@Override
 	public void changeState(Status s) {
 		this.propertyStatus = s;
-
-
+	}
+	
+	public String toString() {
+		return "Property Address: " + this.propertyAddress +"\nNumber of Bedrooms: "
+				+this.bedrooms+ "\nSquare Footage "+this.squareFootage+ "\nPrice: "
+				+this.price+ "\nCurrent Status: "+ this.propertyStatus;
+		
 	}
 
 }
