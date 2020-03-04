@@ -9,45 +9,42 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-
 public class Project4 extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private TreeMap<Integer, Property> properTreeMap = new TreeMap<>();
+	private TreeMap<Integer, Property> propertyTreeMap = new TreeMap<>();
 	
-	/*	JLabels	*/
+	// JLabels
 	JLabel transactionJLabel = new JLabel("Transaction No:");
 	JLabel addressJLabel = new JLabel("Address:");
 	JLabel bedroomsJLabel = new JLabel("Bedrooms:");
 	JLabel squareFootageJLabel = new JLabel("Square Footage:");
 	JLabel priceJLabel = new JLabel("Price:");
 	
-	/*	JTextFields	*/
+	// JTextFields
 	JTextField transactionField = new JTextField();
 	JTextField addressField = new JTextField();
 	JTextField bedroomsField = new JTextField();
 	JTextField squareFootageField = new JTextField();
 	JTextField priceField = new JTextField();
 	
-	/*	JButtons */
+	// JButtons 
 	JButton processBtn = new JButton("Process");
 	JButton changeStatusBtn = new JButton("Change Status");
 	
-	/*	JComboboxes	*/
+	// JComboboxes
 	String[] processeStrings = {"Insert", "Delete", "Find"};
 	JComboBox<String> processComboBox = new JComboBox<>(processeStrings);
-	JComboBox<Status> statusComboBox = new JComboBox<>();
-
+	JComboBox<Status> statusComboBox = new JComboBox<>(Status.values());
+	
+	// Main here
 	public static void main(String[] args) {
 		
-		Property property = new Property("", 1, 1, 1);
-		System.out.println(property);
-		property.changeState(Status.UNDER_CONTRACT);
-		System.out.println(property);
 		Project4 frame = new Project4();
 		frame.setVisible(true);
 
@@ -100,21 +97,38 @@ public class Project4 extends JFrame implements ActionListener {
 		thisPanel.add(statusComboBox);
 		return thisPanel;
 	}
-	
+	// one action performed which will call other methods based on user input
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
+			int tempTransNo = Integer.parseInt(transactionField.getText());
+			
 			if (e.getSource() == processBtn) {
 				if (processComboBox.getSelectedItem() == "Insert") {
+					if (!propertyTreeMap.containsKey(tempTransNo)) {
 					insertProperty();
-				} else if(processComboBox.getSelectedItem() == "Delete") {
-					
-				} else if (processComboBox.getSelectedItem() == "Find") {
-					
-				}
+					} else {
+						JOptionPane.showMessageDialog(getParent(), "Transaction number used.");
+					}
+				} // end process property
+				else if(processComboBox.getSelectedItem() == "Delete") {
+					if (propertyTreeMap.containsKey(tempTransNo)) {
+						deleteProperty();
+					} else {
+						JOptionPane.showMessageDialog(getParent(), "Property does not exist.");
+					}
+				} // end delete property
+				else if (processComboBox.getSelectedItem() == "Find") {
+					if (propertyTreeMap.containsKey(tempTransNo)) {
+						findProperty();
+					} else {
+						JOptionPane.showMessageDialog(getParent(), "Property does not exist.");
+					}
+				}// end find property
 			}
-		} catch (Exception e1) {
-			e1.printStackTrace();
+		} catch (NumberFormatException nfe) {
+			JOptionPane.showMessageDialog(getParent(), "Please use integers for transaction number, "
+					+ "bedrooms, square footage, and price");
 		}
 		
 	}
@@ -126,8 +140,23 @@ public class Project4 extends JFrame implements ActionListener {
 				Integer.parseInt(bedroomsField.getText()), 
 				Integer.parseInt(squareFootageField.getText()), 
 				Integer.parseInt(priceField.getText()));
-		properTreeMap.put(trans, insertedProperty);
-		
+		propertyTreeMap.put(trans, insertedProperty);
+		System.out.println(transactionField.getText() + " Added!");
 	}
+	private void deleteProperty() {
+		propertyTreeMap.remove(Integer.parseInt(transactionField.getText()));
+		System.out.println(transactionField.getText() + " Removed!");
+	}
+	private void findProperty() {
+		if (propertyTreeMap.containsKey(Integer.parseInt(transactionField.getText()))) {
+			Property temProperty = propertyTreeMap.get(Integer.parseInt(transactionField.getText()));
+			JOptionPane.showMessageDialog(getParent(), temProperty.toString());
+		
+		} else {
+			JOptionPane.showMessageDialog(getParent(), "That property does not exist! "
+					+ "to insert it into the database, use Insert");
+		}
+	}
+	
 	
 }
