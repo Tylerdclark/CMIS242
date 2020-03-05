@@ -16,7 +16,6 @@ public class Property implements StateChangeable<Status> {
 		this.price = prc;
 		this.propertyStatus = Status.FOR_SALE;
 	}
-	
 
 	@Override
 	public void changeState(Status s) {
