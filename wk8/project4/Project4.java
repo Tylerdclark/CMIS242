@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 public class Project4 extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	//instance variable of TreeMap
 	private TreeMap<Integer, Property> propertyTreeMap = new TreeMap<>();
 	
 	// JLabels

@@ -8,7 +8,7 @@ public class Property implements StateChangeable<Status> {
 	private int price;
 	private Status propertyStatus;
 	
-	
+	//constructor that sets new property to FOR_SALE
 	public Property(String add, int bed, int sqf, int prc) {
 		this.propertyAddress = add;
 		this.bedrooms = bed;
@@ -21,7 +21,7 @@ public class Property implements StateChangeable<Status> {
 	public void changeState(Status s) {
 		this.propertyStatus = s;
 	}
-	
+	@Override
 	public String toString() {
 		return "Property Address: " + this.propertyAddress +"\nNumber of Bedrooms: "
 				+this.bedrooms+ "\nSquare Footage "+this.squareFootage+ "\nPrice: "
